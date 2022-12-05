@@ -40,7 +40,7 @@ public class AocTest {
 
         System.out.println(dayFour.process());
 
-//        System.out.println(dayFour.processMore());
+        System.out.println(dayFour.processMore());
     }
 
 }

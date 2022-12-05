@@ -38,7 +38,24 @@ public class DayFour implements Day {
 
     @Override
     public String processMore() {
-        return null;
+        int total = Arrays
+                .stream(rawData().split("\n"))
+                .mapToInt(s -> {
+                    String[] elfPairSplitted = s.split(",");
+                    String[] elfOnePair = elfPairSplitted[0].split("-");
+                    String[] elfTwoPair = elfPairSplitted[1].split("-");
+
+                    boolean overlap = Math.max(getIntValue(elfOnePair[0]), getIntValue(elfOnePair[1])) >= Math.min(getIntValue(elfTwoPair[0]), getIntValue(elfTwoPair[1]));
+                    if (overlap) {
+                        return 1;
+                    } else {
+                        return 0;
+                    }
+
+                })
+                .sum();
+
+        return String.format("Total %s", total);
     }
 
     @Override

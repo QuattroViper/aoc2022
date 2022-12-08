@@ -1,8 +1,12 @@
-package org.example.day1;
+package org.example;
 
 public interface Day {
+
+    String getData();
     String process();
     String processMore();
     String rawData();
     String exampleRawData();
+
+
 }

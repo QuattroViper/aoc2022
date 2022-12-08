@@ -1,7 +1,6 @@
-import org.example.day1.DayFour;
-import org.example.day1.DayOne;
-import org.example.day1.DayThree;
-import org.example.day1.DayTwo;
+import org.example.*;
+import org.example.DaySix;
+import org.example.working.Day7;
 import org.junit.jupiter.api.Test;
 
 public class AocTest {
@@ -41,6 +40,46 @@ public class AocTest {
         System.out.println(dayFour.process());
 
         System.out.println(dayFour.processMore());
+    }
+
+    @Test
+    public void DayFive() {
+        DayFive dayFive = new DayFive();
+
+        System.out.println(dayFive.process());
+
+        System.out.println(dayFive.processMore());
+    }
+
+    @Test
+    public void DaySix() {
+        DaySix day = new DaySix();
+
+        System.out.println(day.process());
+
+        System.out.println(day.processMore());
+    }
+
+    @Test
+    public void DaySeven() {
+        DaySeven day = new DaySeven();
+
+        System.out.println(day.process());
+
+        System.out.println(day.processMore());
+
+        Day7 d = new Day7();
+
+        System.out.println(d.part1());
+        System.out.println(d.part2());
+    }
+
+    @Test
+    public void DayEight() {
+        DayEight day = new DayEight();
+
+        System.out.println(day.process());
+        System.out.println(day.processMore());
     }
 
 }

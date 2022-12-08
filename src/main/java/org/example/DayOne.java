@@ -1,4 +1,4 @@
-package org.example.day1;
+package org.example;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;

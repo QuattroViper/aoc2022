@@ -1,8 +1,15 @@
-package org.example.day1;
+package org.example;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class DayFour implements Day {
+
+    @Override
+    public String getData() {
+        return rawData();
+    }
 
     private Integer getIntValue(String val) {
         return Integer.parseInt(val);
@@ -12,7 +19,7 @@ public class DayFour implements Day {
     public String process() {
 
         int total = Arrays
-                .stream(rawData().split("\n"))
+                .stream(getData().split("\n"))
                 .mapToInt(s -> {
                     String[] elfPairSplitted = s.split(",");
                     String[] elfOnePair = elfPairSplitted[0].split("-");
@@ -39,19 +46,34 @@ public class DayFour implements Day {
     @Override
     public String processMore() {
         int total = Arrays
-                .stream(rawData().split("\n"))
+                .stream(getData().split("\n"))
                 .mapToInt(s -> {
                     String[] elfPairSplitted = s.split(",");
                     String[] elfOnePair = elfPairSplitted[0].split("-");
                     String[] elfTwoPair = elfPairSplitted[1].split("-");
 
-                    boolean overlap = Math.max(getIntValue(elfOnePair[0]), getIntValue(elfOnePair[1])) >= Math.min(getIntValue(elfTwoPair[0]), getIntValue(elfTwoPair[1]));
-                    if (overlap) {
-                        return 1;
-                    } else {
-                        return 0;
+                    // Werk net halfpad
+                    // boolean overlap = Math.max(getIntValue(elfOnePair[0]), getIntValue(elfOnePair[1])) >= Math.min(getIntValue(elfTwoPair[0]), getIntValue(elfTwoPair[1]));
+
+                    List<String> elfOneList = new ArrayList<>();
+                    for (int i = getIntValue(elfOnePair[0]); i <= getIntValue(elfOnePair[1]); i++) {
+                        elfOneList.add(String.valueOf(i));
                     }
 
+                    List<String> elfTwoList = new ArrayList<>();
+                    for (int i = getIntValue(elfTwoPair[0]); i <= getIntValue(elfTwoPair[1]); i++) {
+                        elfTwoList.add(String.valueOf(i));
+                    }
+
+                    for (String assignmentOne : elfOneList) {
+                        for (String assignmentTwo: elfTwoList) {
+                            if (assignmentOne.equals(assignmentTwo)) {
+                                return 1;
+                            }
+                        }
+                    }
+
+                    return 0;
                 })
                 .sum();
 
@@ -1074,4 +1096,6 @@ public class DayFour implements Day {
                 2-6,4-8
                 """;
     }
+
+
 }

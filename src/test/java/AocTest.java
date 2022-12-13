@@ -82,4 +82,21 @@ public class AocTest {
         System.out.println(day.processMore());
     }
 
+    @Test
+    public void DayNine() {
+        DayNine day = new DayNine();
+
+        System.out.println(day.process());
+        System.out.println(day.processMore());
+    }
+
+    @Test
+    public void DayEleven() {
+        DayEleven day = new DayEleven();
+
+        System.out.println(day.process());
+        System.out.println(day.processMore());
+    }
+
+
 }
